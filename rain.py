@@ -7,6 +7,17 @@ import os
 
 
 def fetch_html(url, sleep_in_sec):
+    try:
+        browser = webdriver.PhantomJS()
+        browser.get(url)
+        time.sleep(sleep_in_sec)
+        html = browser.page_source
+        return html
+    except Exception as e:
+        print(e)
+
+
+def fetch_html_headless(url, sleep_in_sec):
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--window-size=1920x1080')
@@ -34,7 +45,7 @@ def main():
 
         print('trying nº {}'.format(CURRENT))
 
-        html = fetch_html(URL, SLEEP_FOR)
+        html = fetch_html_headless(URL, SLEEP_FOR)
 
         soup = BeautifulSoup(html, 'lxml')
         div = soup("div", {'id': 'div_wgfcst0'})
