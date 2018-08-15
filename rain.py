@@ -16,6 +16,7 @@ def main():
 	print('Starting windGuru crawler...')
 
 	MAX_RETRIES = 5
+	SLEEP_FOR = 5
 	CURRENT = 1
 	URL = "https://www.windguru.cz/263"
 
@@ -23,14 +24,14 @@ def main():
 
 		print('trying nº {}'.format(CURRENT))
 		
-		html = fetch_html(URL, 5)
+		html = fetch_html(URL, SLEEP_FOR)
 
 		soup = BeautifulSoup(html, 'lxml')
 		div = soup("div", {'id' : 'div_wgfcst0' })
 		tr = soup("tr", {'id' : 'tabid_0_0_APCPs' })
 
 		td_arr = str(tr).split('</td>')
-		if not td_arr:
+		if not td_arr or len(td_arr) <= 1:
 			print('DAAAAMMMMMNNN!!!')
 			CURRENT += 1
 			continue
