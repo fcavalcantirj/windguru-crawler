@@ -9,6 +9,17 @@ from datetime import datetime
 
 
 def fetch_html(url, sleep_in_sec):
+    try:
+        browser = webdriver.PhantomJS()
+        browser.get(url)
+        time.sleep(sleep_in_sec)
+        html = browser.page_source
+        return html
+    except Exception as e:
+        print(e)
+
+
+def fetch_html_headless(url, sleep_in_sec):
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--window-size=1920x1080')
@@ -35,7 +46,7 @@ def main():
     for current in range(max_retries):
         print('trying nº {}'.format(current+1))
 
-        html = fetch_html(url, sleep_for)
+        html = fetch_html_headless(url, sleep_for)
 
         soup = BeautifulSoup(html, 'lxml')
         tr_dates = soup('tr', {'id': 'tabid_0_0_dates'})
