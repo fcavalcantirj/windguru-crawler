@@ -1,51 +1,87 @@
-# Simple WindGuru crawler POC
+# Project Title
 
-Simple web-crawler using BeautifulSoup and webdriver to get precipitation data from [windguru](https://www.windguru.com/263).
+One Paragraph of project description goes here
 
-This is just a POC - should not to be used in production.
+## Getting Started
 
-  - You can change it to your city...
-  - You can change to get more data...
-  - You can change to whatever you need/want...
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Installation
+### Prerequisites
 
-You need to have nodejs and python (and npm and pip).
-You also need [phantomjs](http://phantomjs.org/download.html).
+What things you need to install the software and how to install them
 
-Install the dependencies...
-
-```sh
-$ cd windguru-crawler
-$ pip install -r requirements.txt
+```
+Give examples
 ```
 
-To run...
+### Installing
 
-```sh
-$ python rain.py
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
 ```
 
-expected output...
-```sh
-[-]
-[F">]
-[F">]
-[F">]
-[>0.3]
-...
+And repeat
+
 ```
-Where **0.3** is the precipitation in milimeters.
-
-PS. If doesn't work, try to increase the SLEEP_FOR var... also, hit the URL on the browser and try above on the console:
-
-```sh
-document.getElementById('div_wgfcst0')
-should output
-<div class="obal-wrap" id="div_wgfcst0"></div>
+until finished
 ```
 
-License
-----
-GNU Affero General Public License v3.0
+End with an example of getting some data out of the system or using it for a little demo
 
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
