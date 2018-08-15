@@ -37,13 +37,9 @@ expected output...
 ```
 Where **0.3** is the precipitation in milimeters.
 
-PS. If doesn't work, try to increase the SLEEP_FOR var... also, hit the URL on the browser and try above on the console:
-```sh
-document.getElementById('div_wgfcst0')
-should output...
-    <div class=​"obal-wrap" id=​"div_wgfcst0">​…​</div>​
-```
+PS. If doesn't work, try to increase the SLEEP_FOR var...
 
 License
 ----
 GNU Affero General Public License v3.0
+
