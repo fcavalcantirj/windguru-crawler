@@ -35,7 +35,7 @@ expected output...
 [>0.3]
 ...
 ```
-Where **0.3** is the precipitation in milimeters.
+Where **0.3** is the precipitation in milimeters. Any doubts on the data, come [here](https://www.windguru.cz/help.php?sec=intro) and search for **Precipitation**
 
 PS. If doesn't work, try to increase the SLEEP_FOR var... also, hit the URL on the browser and try above on the console:
 
