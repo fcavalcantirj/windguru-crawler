@@ -10,7 +10,7 @@ This is just a POC - should not to be used in production.
 
 ### Installation
 
-You need to have nodejs and python (and npm and pip).
+You need to have nodejs and python3 (and npm and pip3).
 You also need [phantomjs](http://phantomjs.org/download.html) or [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 Install the dependencies...
@@ -23,17 +23,19 @@ $ pip install -r requirements.txt
 To run...
 
 ```sh
-$ python rain.py
+$ python3 rain.py
 ```
 
 expected output...
 ```sh
-[-]
-[F">]
-[F">]
-[F">]
-[>0.3]
-...
+Starting windGuru crawler...
+trying number 1
+09h: -
+12h:  
+15h:  
+18h: 0.3
+21h: 1.5
+DONE
 ```
 Where **0.3** is the precipitation in milimeters. Any doubts on the data, come [here](https://www.windguru.cz/help.php?sec=intro) and search for **Precipitation**
 

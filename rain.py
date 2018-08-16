@@ -44,7 +44,7 @@ def main():
     url = "https://www.windguru.cz/263"
 
     for current in range(max_retries):
-        print('trying not {}'.format(current+1))
+        print('trying number {}'.format(current+1))
 
         html = fetch_html_headless(url, sleep_for)
 
