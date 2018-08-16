@@ -43,7 +43,7 @@ def main():
 
     while CURRENT <= MAX_RETRIES:
 
-        print('trying nº {}'.format(CURRENT))
+        print('trying n {}'.format(CURRENT))
 
         html = fetch_html_headless(URL, SLEEP_FOR)
 
