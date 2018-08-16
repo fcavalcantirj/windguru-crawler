@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
+from itertools import chain
+from datetime import datetime
 
 
 def fetch_html(url, sleep_in_sec):
@@ -36,39 +38,38 @@ def fetch_html_headless(url, sleep_in_sec):
 def main():
     print('Starting windGuru crawler...')
 
-    MAX_RETRIES = 5
-    SLEEP_FOR = 5
-    CURRENT = 1
-    URL = "https://www.windguru.cz/263"
+    max_retries = 5
+    sleep_for = 5
+    current = 1
+    url = "https://www.windguru.cz/263"
 
-    while CURRENT <= MAX_RETRIES:
+    for current in range(max_retries):
+        print('trying nº {}'.format(current+1))
 
-        print('trying n {}'.format(CURRENT))
-
-        html = fetch_html_headless(URL, SLEEP_FOR)
+        html = fetch_html_headless(url, sleep_for)
 
         soup = BeautifulSoup(html, 'lxml')
-        div = soup("div", {'id': 'div_wgfcst0'})
+        tr_dates = soup('tr', {'id': 'tabid_0_0_dates'})
+        hours = [td.contents for td in chain.from_iterable([x.find_all('td') for x in tr_dates])]
         tr = soup("tr", {'id': 'tabid_0_0_APCPs'})
-
-        td_arr = str(tr).split('</td>')
-        if not td_arr or len(td_arr) <= 1:
+        td_arr = [td.contents[0] for td in chain.from_iterable([x.find_all('td') for x in tr])]
+        if td_arr and hours:
+            break
+        else:
             print('DAAAAMMMMMNNN!!!')
-            CURRENT += 1
-            continue
+            current += 1
 
-        idx = 0
-        for td in td_arr:
-            idx = idx + 1
-            if idx == 1:
-                now = td[-1:]
-                print('[{}]'.format(now))
-            elif idx == 72:
-                break
-            elif idx < 70:
-                print('[{}]'.format(td[-4:]))
-        print('DONE')
+    if not td_arr or not hours:
+        print('Failed after {} tries')
         exit(0)
+
+    dhoje = datetime.now().day
+    forecast = filter(lambda x: int(x[0][2].strip('.')) == dhoje, zip(hours, td_arr))
+
+    for h, p in forecast:
+        print('{}: {}'.format(h[4], p))
+
+    print('DONE')
 
 
 if __name__ == "__main__":
