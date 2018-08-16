@@ -11,7 +11,7 @@ This is just a POC - should not to be used in production.
 ### Installation
 
 You need to have nodejs and python (and npm and pip).
-You also need [phantomjs](http://phantomjs.org/download.html).
+You also need [phantomjs](http://phantomjs.org/download.html) or [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 Install the dependencies...
 
