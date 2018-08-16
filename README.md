@@ -1,4 +1,4 @@
-# Simple WindGuru crawler POC
+# Simple WindGuru Crawler
 
 Simple web-crawler using BeautifulSoup and webdriver to get precipitation data from [windguru](https://www.windguru.com/263).
 
