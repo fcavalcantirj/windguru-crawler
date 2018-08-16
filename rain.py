@@ -44,7 +44,7 @@ def main():
     url = "https://www.windguru.cz/263"
 
     for current in range(max_retries):
-        print('trying nº {}'.format(current+1))
+        print('trying not {}'.format(current+1))
 
         html = fetch_html_headless(url, sleep_for)
 
@@ -60,7 +60,7 @@ def main():
             current += 1
 
     if not td_arr or not hours:
-        print('Failed after {} tries')
+        print('Failed after {} tries'.format(current))
         exit(0)
 
     dhoje = datetime.now().day
