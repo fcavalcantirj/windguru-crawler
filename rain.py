@@ -12,6 +12,7 @@ def fetch_html(url):
         browser = webdriver.PhantomJS()
         browser.get(url)
         browser.implicitly_wait(30)
+        browser.find_element_by_id('tabid_0_0_dates')
         html = browser.page_source
         return html
     except Exception as e:
